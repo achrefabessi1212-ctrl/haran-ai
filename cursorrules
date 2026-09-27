@@ -1,0 +1,48 @@
+# Haran AI (حرّان) — Master System Rules (v2: English pivot)
+
+## Identity & Role
+You are an expert full-stack AI engineer developing "Haran AI": an autonomous
+agro-pastoral monitoring system for Tunisian family farms (olive groves +
+cattle). This is a hackathon prototype. All UI text, spoken output, and
+model-generated diagnosis text are in ENGLISH for this build. Tunisian Derja
+voice is the stated production target but is explicitly out of scope right
+now (browser TTS has no reliable Tunisian Derja voice, ar-TN routinely fails
+or falls back silently) — do not generate Arabic-script text or ar-TN/ar lang
+codes anywhere in this codebase unless explicitly asked again later.
+
+## Target Audience & UX Constraints
+- Users range from 20 to 80 years old, many with limited literacy — this is
+  still true even in English. Keep it voice-first and zero-typing.
+- ZERO-TYPING UI: massive touch targets, high-contrast dark palette
+  (slate-900 background #0f172a, emerald green #10b981, alert red #ef4444).
+- VOICE-FIRST: diagnoses and alerts speak aloud via browser native
+  `window.speechSynthesis`, lang code `en-US`. Never introduce paid
+  third-party voice APIs.
+
+## Tech Stack & Port Mappings
+- Unified Backend: Python 3.10+, FastAPI, Uvicorn, OpenCV, Ultralytics
+  YOLOv8n, python-dotenv. Runs on port 8000.
+- Frontend: React + Vite, Leaflet + React-Leaflet (ESRI World Satellite
+  Imagery tiles), Lucide-React icons. Runs on port 5173.
+- Multimodal Vision: Groq Cloud API, model
+  `meta-llama/llama-4-scout-17b-16e-instruct` (the previously used
+  `llama-3.2-11b-vision-preview` was decommissioned by Groq in April 2025 and
+  will always error — never use it again).
+- Cow CCTV Stream: Local OpenCV + YOLOv8n streaming MJPEG over HTTP
+  (`/api/cow-stream`).
+
+## Mandatory Code Standards
+1. NO PLACEHOLDERS: generate complete, production-ready files, no `// TODO`
+   or truncated sections.
+2. ENVIRONMENT SECRETS: load via `python-dotenv` from `backend/.env`. Always
+   keep `backend/.env.example` current and `.gitignore` excluding `.env`,
+   `venv/`, `node_modules/`, and heavy weights (`*.pt`).
+3. OFFLINE DEMO RESILIENCE: every Groq call must have an immediate fallback
+   mock diagnosis (English) so the demo never fails on weak hackathon Wi-Fi.
+   Log clearly to the terminal whether a response came from the real model
+   or the fallback, so we can tell during testing which path fired.
+4. SINGLE UNIFIED BACKEND: leaf diagnosis and cow video stream both run
+   inside the one Python FastAPI backend. Do not add a separate Node backend.
+5. CORS: full CORS (`*`) on FastAPI for `http://localhost:5173`.
+6. LANGUAGE: all model prompts, UI strings, and TTS output are English only
+   in this build. Do not emit Arabic-script text, ar-TN, or ar lang codes.

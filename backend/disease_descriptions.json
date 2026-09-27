@@ -1,0 +1,66 @@
+{
+  "_readme": "Class profiles for the offline olive-leaf classifier. voice_script is spoken in English.",
+  "healthy": {
+    "disease_name_en": "Healthy leaf",
+    "disease_name_fr": "Feuille saine",
+    "disease_name_ar_derja": "لاباس",
+    "pathogen_type": "none",
+    "typical_visual_description": "The leaf is clean. No spray is needed today.",
+    "voice_script_key": "healthy",
+    "voice_script": "Farmer, this leaf looks healthy. Keep watering and light pruning. No spray is needed today."
+  },
+  "diseased": {
+    "disease_name_en": "Diseased leaf",
+    "disease_name_fr": "Feuille malade",
+    "disease_name_ar_derja": "ورقة مريضة",
+    "pathogen_type": "unspecified",
+    "typical_visual_description": "The leaf has spots. They often look like peacock spot. Spray copper sulfate and ask an expert to confirm the disease.",
+    "voice_script_key": "diseased",
+    "voice_script": "Farmer, this leaf has spots. Ask an expert to confirm what they are before you spray."
+  },
+  "peacock_spot": {
+    "disease_name_en": "Peacock spot",
+    "disease_name_fr": "Oeil de paon",
+    "disease_name_ar_derja": "عين الطاووس",
+    "pathogen_type": "fungus",
+    "typical_visual_description": "Spray copper sulfate before the rain.",
+    "voice_script_key": "peacock_spot",
+    "voice_script": "Farmer, this tree has peacock spot. Spray copper sulfate on this tree and the trees around it before the rain, so the disease does not spread."
+  },
+  "olive_knot": {
+    "disease_name_en": "Olive knot",
+    "disease_name_fr": "Tuberculose de l'olivier",
+    "disease_name_ar_derja": "سل الزيتون",
+    "pathogen_type": "bacteria",
+    "typical_visual_description": "Cut the galled branches and sterilize the tools.",
+    "voice_script_key": "olive_knot",
+    "voice_script": "Farmer, this tree has olive knot. Cut off the galled branches and sterilize your tools with alcohol or a flame before you prune the next tree."
+  },
+  "aculus_olearius": {
+    "disease_name_en": "Olive gall mite",
+    "disease_name_fr": "Acarien de l'olivier",
+    "disease_name_ar_derja": "حلم الزيتون",
+    "pathogen_type": "mite",
+    "typical_visual_description": "The leaf is deformed by mites.",
+    "voice_script_key": "aculus_olearius",
+    "voice_script": "Farmer, this leaf shows mite damage. Check the nearby trees and ask an expert before you spray."
+  },
+  "verticillium_wilt": {
+    "disease_name_en": "Verticillium wilt",
+    "disease_name_fr": "Verticilliose",
+    "disease_name_ar_derja": "ذبول الزيتون",
+    "pathogen_type": "fungus",
+    "typical_visual_description": "A branch is wilting while the rest of the tree is still green.",
+    "voice_script_key": "verticillium_wilt",
+    "voice_script": "Farmer, this looks like olive wilt. Do not move soil from this tree to the others, and ask an expert before you cut."
+  },
+  "anthracnose": {
+    "disease_name_en": "Anthracnose",
+    "disease_name_fr": "Anthracnose",
+    "disease_name_ar_derja": "مرض الأنثراكنوز",
+    "pathogen_type": "fungus",
+    "typical_visual_description": "Fruit and leaf spots from anthracnose.",
+    "voice_script_key": "anthracnose",
+    "voice_script": "Farmer, this looks like anthracnose. Remove the spotted fruit and leaves, and ask an expert about the spray."
+  }
+}
